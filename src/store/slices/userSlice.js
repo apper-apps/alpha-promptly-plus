@@ -8,8 +8,8 @@ const initialState = {
     generationCount: 47,
     joinedAt: new Date().toISOString(),
     subscription: {
-      plan: "free",
-      generationsLeft: 53
+      type: "premium",
+      expiresAt: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
     }
   },
   isLoading: false,
@@ -17,7 +17,7 @@ const initialState = {
 };
 
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     setUser: (state, action) => {

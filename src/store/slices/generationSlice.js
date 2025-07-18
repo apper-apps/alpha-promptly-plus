@@ -8,7 +8,7 @@ const initialState = {
 };
 
 const generationSlice = createSlice({
-  name: "generation",
+  name: 'generation',
   initialState,
   reducers: {
     setGenerations: (state, action) => {
@@ -40,6 +40,9 @@ const generationSlice = createSlice({
     },
     setError: (state, action) => {
       state.error = action.payload;
+    },
+    clearError: (state) => {
+      state.error = null;
     }
   }
 });
@@ -52,7 +55,8 @@ export const {
   setCurrentGeneration,
   toggleFavorite,
   setGenerating,
-  setError
+  setError,
+  clearError
 } = generationSlice.actions;
 
 export default generationSlice.reducer;

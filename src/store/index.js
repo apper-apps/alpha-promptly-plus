@@ -1,13 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userSlice from "@/store/slices/userSlice";
+import React from "react";
 import generationSlice from "@/store/slices/generationSlice";
+import userSlice from "@/store/slices/userSlice";
 
 export const store = configureStore({
   reducer: {
     user: userSlice,
     generation: generationSlice
   },
-  middleware: (getDefaultMiddleware) =>
+middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"]
@@ -15,5 +16,4 @@ export const store = configureStore({
     })
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export default store;
